@@ -8,14 +8,14 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour
 {
     //Attributes
-    private int health;
+    [SerializeField] private int health;
     public int Health {
         get { return health; }
         set { health = Math.Max(value, 0); } 
     }
 
-    protected Animator anim;
-    protected Rigidbody2D rb;
+    public Animator anim;
+    public Rigidbody2D rb;
 
     //Method
     public bool IsDead()

@@ -5,18 +5,40 @@ using UnityEngine;
 public class Croccodile : Enemy
 {
     //Attributes
-    private float attackRange;
-    private Player player;
+    [SerializeField] private float attackRange;
+    [SerializeField] public Player player;
+
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject bulletSpawnPoint;
+    [SerializeField] private float bulletSpawnTime;
+    private float bulletTimer;
 
     //Method
-    public void Shoot()
+    private void Update()
     {
-
+        bulletTimer -= Time.deltaTime;
+        Behavior();
     }
 
     public override void Behavior()
     {
         //throw new System.NotImplementedException();
-        Debug.Log("Croc run Brhavior");
+        //Debug.Log("Croc run Brhavior");
+
+        Vector3 direction = player.transform.position - transform.position;
+        float distance = direction.magnitude;
+
+        if (distance < attackRange)
+        {
+            Shoot();
+        }
+    }
+    public void Shoot()
+    {
+        if (bulletTimer <= 0)
+        {
+            bulletTimer = bulletSpawnTime;
+            Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
+        }
     }
 }

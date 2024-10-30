@@ -309,9 +309,9 @@ MonoBehaviour:
   rb: {fileID: 194423697}
   attackRange: 5
   player: {fileID: 922430344}
-  bullet: {fileID: 115806, guid: 40466c5ac40024bbca1e4b144cdf43c2, type: 3}
-  bulletSpawnPoint: {fileID: 912207496}
-  bulletSpawnTime: 2
+  <Bullet>k__BackingField: {fileID: 115806, guid: 40466c5ac40024bbca1e4b144cdf43c2, type: 3}
+  <BulletSpawnPoint>k__BackingField: {fileID: 912207496}
+  <BulletSpawnTime>k__BackingField: 1
 --- !u!95 &194423695 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9555892, guid: c07db661138134f589f46b8510d57c9a, type: 3}

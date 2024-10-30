@@ -11,6 +11,7 @@ public class Banana : Weapon
     public override void Move()
     {
         Debug.Log($"Banana Is Moving With Constant Speed Of: {speed}");
+
     }
 
     public override void OnHitWith(Character character)

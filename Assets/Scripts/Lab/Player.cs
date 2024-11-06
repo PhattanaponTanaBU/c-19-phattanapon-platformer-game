@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //
@@ -8,7 +9,7 @@ public class Player : Character, IShootable
 {
     //Attributes
     [field: SerializeField] public GameObject Bullet { get; set; }
-    [field: SerializeField] public GameObject BulletSpawnPoint { get; set; }
+    [field: SerializeField] public Transform BulletSpawnPoint { get; set; }
     [field: SerializeField] public float BulletSpawnTime { get; set; } //Reload Time
     public float BulletTimer { get; set; }
 
@@ -25,7 +26,23 @@ public class Player : Character, IShootable
     public void Shoot()
     {
         BulletTimer = BulletSpawnTime;
-        Instantiate(Bullet, BulletSpawnPoint.transform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(Bullet, BulletSpawnPoint.transform.position, Quaternion.identity);
+        projectile.gameObject.GetComponent<Weapon>().Shooter = this;
+
+    }
+
+    public void OnHitWith(Enemy enemy)
+    {
+        TakeDamage(enemy.DamageHit);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            OnHitWith(enemy);
+        }
     }
 
 }

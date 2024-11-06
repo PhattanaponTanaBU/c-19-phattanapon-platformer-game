@@ -6,7 +6,7 @@ public interface IShootable
 {
     //Attributes
     GameObject Bullet { get; set; }
-    GameObject BulletSpawnPoint { get; set; }
+    Transform BulletSpawnPoint { get; set; }
     float BulletSpawnTime { get; set; } //Reload Time
     float BulletTimer { get; set; }
 

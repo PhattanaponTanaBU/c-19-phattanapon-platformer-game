@@ -15,8 +15,4 @@ public abstract class Enemy : Character
     //Method
     public abstract void Behavior();
 
-    private void Start()
-    {
-        DamageHit = 5;
-    }
 }

@@ -19,7 +19,7 @@ public class Ant : Enemy
     public void Initialize(int newHealth)
     {
         Health = newHealth;
-        Debug.Log($"Ant new health {Health}");
+        Debug.Log($"Ant new Health {Health}");
     }*/
 
     //Method
